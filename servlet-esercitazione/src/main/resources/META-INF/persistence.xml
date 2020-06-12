@@ -7,7 +7,7 @@
 	<persistence-unit name="emf" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ticket?useUnicode=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/esercitazione?useUnicode=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false" />
 			<property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="password" />
@@ -16,7 +16,6 @@
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
-			<property name="hibernate.hbm2ddl.import_files" value="data.sql" />
 		</properties>
 	</persistence-unit>
 </persistence>
