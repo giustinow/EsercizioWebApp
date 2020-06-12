@@ -12,10 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.dstech.service.Service;
 
-@WebServlet(urlPatterns = "/home")
+@WebServlet(urlPatterns = { "/home","/"})
 public class Home extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
+		EntityManager em = emf.createEntityManager();
+		Service service = new Service(em);
+		req.setAttribute("listaPersone", service.stampaListaPersone());
 		req.getRequestDispatcher("homepage.jsp").forward(req, resp);
 	}
 	@Override
@@ -28,7 +32,8 @@ public class Home extends HttpServlet {
 		String numeroTelefono = req.getParameter("numero");
 		if(!service.checkPersona(numeroTelefono)) {
 		service.aggiungiPersona(nome, cognome, numeroTelefono);
-		req.setAttribute("messaggio", "Utente gia registrato!");
+		}else {
+			req.setAttribute("messaggio", "Utente gia registrato!");
 		}
 		req.setAttribute("listaPersone", service.stampaListaPersone());
 		req.getRequestDispatcher("homepage.jsp").forward(req, resp);

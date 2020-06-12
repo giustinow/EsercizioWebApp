@@ -13,22 +13,22 @@
 </head>
 <body>
 <% String messaggio = (String) request.getAttribute("messaggio"); %>
-<h1>Benvenuto!</h1>
-<form action="home" method="post">
- <div class="form-group">
+<div class="form-group">
+<h1 style="text-align: center">Benvenuto!</h1>
+</div>
+<div class="form-group">
+<form action="home" method="post" class="col-lg-6 offset-lg-3 ">
+ <div class="row justify-content-center">
 <input type="text" class="form-control col-lg-3"  name="nome" required="required" placeholder="Nome">
-</div>
- <div class="form-group">
 <input type="text" class="form-control col-lg-3"  name="cognome" required="required" placeholder="Cognome">
+<input type="number" pattern=".{10}" class="form-control col-lg-3"  name="numero" required="required" placeholder="Numero Di Telefono">
+<button type="submit" class="btn btn-danger btn-md">Aggiungi</button>
 </div>
- <div class="form-group">
-<input type="number" class="form-control col-lg-3"  name="numero" required="required" placeholder="Numero Di Telefono">
-</div>
-<button type="submit" class="btn btn-primary btn-md">Aggiungi</button>
 </form>
-<% if(messaggio != null){ %>
-<%=messaggio %>
-<%} %>
+</div>
+<% if(messaggio !=null){ %>
+<h4 style="text-align: center; color:red"><%=messaggio %></h4>
+<%}%>
 <br>
 <table class="table table-striped">
 		<thead>
